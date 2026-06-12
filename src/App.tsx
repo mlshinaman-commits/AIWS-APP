@@ -1,4 +1,6 @@
 import { ArrowRight, CheckCircle2, Fingerprint, Network, Radar, ShieldAlert, Sparkles } from "lucide-react";
+import CustomerProof from "./components/CustomerProof";
+import DemoForm from "./components/DemoForm";
 import MetricCard from "./components/MetricCard";
 import SectionHeading from "./components/SectionHeading";
 import SiteFooter from "./components/SiteFooter";
@@ -34,6 +36,7 @@ export default function App() {
                 See Fraud Shield
               </a>
             </div>
+            <p className="hero-proofline">Design-partner proof: faster shortlists, stopped proxy interviews, and week-three executive scorecards.</p>
           </div>
 
           <div className="hero-panel" aria-label="AIWS funnel control room preview">
@@ -156,17 +159,17 @@ export default function App() {
           </div>
         </section>
 
-        <section className="cta-section" id="strategy-briefing">
-          <p className="eyebrow">Board-ready by design</p>
-          <h2>See your own hiring funnel through Fraud Shield.</h2>
-          <p>
-            Bring your highest-risk role family. AIWS will map the funnel, estimate cost and fraud exposure, and
-            show where verification belongs before trust becomes access.
-          </p>
-          <a className="button button-dark" href={primaryCta.href}>
-            {primaryCta.label}
-            <ArrowRight size={17} />
-          </a>
+        <section className="cta-section" id="demo">
+          <div className="cta-copy">
+            <p className="eyebrow">Board-ready by design</p>
+            <h2>See your own hiring funnel through Fraud Shield.</h2>
+            <p>
+              Bring your highest-risk role family. AIWS will map the funnel, estimate cost and fraud exposure, and
+              show where verification belongs before trust becomes access.
+            </p>
+            <CustomerProof />
+          </div>
+          <DemoForm />
         </section>
       </main>
       <SiteFooter />

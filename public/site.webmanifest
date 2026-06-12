@@ -1,0 +1,9 @@
+{
+  "name": "IntelliSource AI Workforce Solutions",
+  "short_name": "AIWS",
+  "description": "Hire at AI speed. Verify every human.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F7F3",
+  "theme_color": "#0E211B"
+}

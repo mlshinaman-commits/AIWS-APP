@@ -10,8 +10,13 @@ The site positions AIWS around one promise: **Hire at AI speed. Verify every hum
 npm install
 npm run dev
 npm test
+npm run test:e2e
 npm run build
 ```
+
+## Demo capture
+
+The demo form posts JSON to `VITE_DEMO_FORM_ENDPOINT` when configured. Without that environment variable, it prepares a complete email draft to `hello@intellisource.ai` so the site still has a working handoff on static hosting.
 
 ## Architecture
 
@@ -28,7 +33,7 @@ src/
 - Keep the page conversion-focused: one primary CTA repeated at meaningful points.
 - Keep claims and navigation in `src/content/site.ts` so future iteration is easy.
 - Preserve the Fraud Shield differentiator and eleven-layer verification story.
-- Run `npm test` and `npm run build` before shipping.
+- Run `npm test`, `npm run test:e2e`, and `npm run build` before shipping.
 
 ## Next improvement cycles
 

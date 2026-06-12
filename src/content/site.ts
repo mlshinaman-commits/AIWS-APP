@@ -3,6 +3,7 @@ export const navItems = [
   { label: "Fraud Shield", href: "#fraud-shield" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Research", href: "#research" },
+  { label: "Demo", href: "#demo" },
 ] as const;
 
 export const proofMetrics = [
@@ -78,5 +79,25 @@ export const researchReports = [
 
 export const primaryCta = {
   label: "Book a strategy briefing",
-  href: "mailto:hello@intellisource.ai?subject=AIWS%20strategy%20briefing",
+  href: "#demo",
 } as const;
+
+export const contactEmail = "hello@intellisource.ai";
+
+export const customerProof = [
+  {
+    segment: "Manufacturing design partner",
+    result: "42% faster shortlist creation",
+    detail: "Priority maintenance and operations roles moved from manual sourcing to AI-assisted recruiter review.",
+  },
+  {
+    segment: "Remote technical hiring",
+    result: "Every confirmed proxy interview stopped",
+    detail: "Fraud Shield routed flagged interviews to review before offer approval or system access.",
+  },
+  {
+    segment: "Enterprise implementation",
+    result: "Weekly executive scorecard live in week 3",
+    detail: "Baseline cost, time-to-fill, quality, and trust metrics were locked before scale-up.",
+  },
+] as const;
