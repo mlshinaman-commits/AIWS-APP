@@ -26,6 +26,8 @@ src/
   content/site.ts   Structured marketing copy and navigation
   App.tsx           Landing page section composition
   index.css         Brand system and responsive presentation
+reference/
+  aiws-standalone-static-site.html  Archived standalone site from main
 ```
 
 ## Quality bar

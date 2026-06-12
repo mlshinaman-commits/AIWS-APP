@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IntelliSource AIWS — Hire at AI speed. Verify every human.</title>
+<meta name="description" content="IntelliSource AI Workforce Solutions: AI-powered RPO, workforce intelligence, talent communities, and Fraud Shield — the hiring fraud prevention platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F3;
+  --panel:#FFFFFF;
+  --ink:#0E211B;
+  --ink-soft:#3D4F49;
+  --ink-faint:#6B7A74;
+  --verified:#128A62;
+  --verified-soft:#E2F2EB;
+  --flag:#B57417;
+  --flag-soft:#F7EDDC;
+  --alert:#B5402F;
+  --alert-soft:#F6E4E0;
+  --line:#D9DED5;
+  --line-dark:#23362F;
+  --display:'Funnel Display',sans-serif;
+  --body:'Public Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--verified);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--verified);flex:none}
+.eyebrow.flag::before{background:var(--flag)}
+.eyebrow.alert::before{background:var(--alert)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.015em}
+h2{font-size:clamp(30px,4.2vw,46px);margin:18px 0 16px}
+h3{font-size:21px;line-height:1.25}
+.lede{font-size:18px;color:var(--ink-soft);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--body);font-weight:600;font-size:15px;padding:13px 24px;border-radius:6px;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .15s ease,background .15s ease,color .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:#1B3A30}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:rgba(14,33,27,.06)}
+.btn .arrow{transition:transform .15s ease}
+.btn:hover .arrow{transform:translateX(3px)}
+section{padding:96px 0;border-top:1px solid var(--line)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(246,247,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo svg{flex:none}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-text .mark{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em}
+.logo-text .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-cta .btn{padding:9px 18px;font-size:14px}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-family:var(--mono);font-size:12px;cursor:pointer}
+@media(max-width:880px){
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .menu-btn{display:block}
+  .mobile-menu{display:none;position:absolute;top:66px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:18px 28px 26px}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:11px 0;font-weight:500;text-decoration:none;border-bottom:1px solid var(--line)}
+}
+@media(min-width:881px){.mobile-menu{display:none!important}}
+
+/* ---------- HERO ---------- */
+.hero{padding:84px 0 96px;border-top:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,66px);margin:20px 0 22px}
+.hero h1 .verify{color:var(--verified)}
+.hero .lede{margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-foot{margin-top:38px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.04em}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:52px}}
+
+/* ---------- CONSOLE (signature) ---------- */
+.console{background:var(--ink);border-radius:12px;padding:0;color:#DCE7E1;box-shadow:0 32px 64px -28px rgba(14,33,27,.45);overflow:hidden;font-family:var(--mono)}
+.console-bar{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid var(--line-dark);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8FA59C}
+.console-bar .live{display:flex;align-items:center;gap:7px}
+.console-bar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--verified);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.console-body{padding:22px 22px 24px}
+.cand{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;gap:12px}
+.cand-name{font-size:15px;font-weight:600;color:#F2F6F3}
+.cand-role{font-size:11.5px;color:#8FA59C;margin-top:3px}
+.cand-id{font-size:10.5px;color:#5E736B;letter-spacing:.08em}
+.checks{list-style:none;display:flex;flex-direction:column;gap:0}
+.check{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line-dark);font-size:12.5px}
+.check-label{color:#B9C9C2}
+.check-status{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;min-width:78px;text-align:center}
+.s-wait{color:#5E736B;border:1px dashed #36493F}
+.s-scan{color:#D8C99A;border:1px solid #66572B}
+.s-pass{color:#7FDCB3;background:rgba(18,138,98,.18);border:1px solid rgba(18,138,98,.5)}
+.s-fail{color:#F0A091;background:rgba(181,64,47,.18);border:1px solid rgba(181,64,47,.55)}
+.score-row{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:18px;border-top:1px solid var(--line-dark)}
+.score-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8FA59C}
+.score-val{font-family:var(--display);font-size:44px;font-weight:700;line-height:1;color:#F2F6F3}
+.score-val small{font-size:16px;color:#5E736B;font-weight:500}
+.verdict{font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:5px;opacity:0;transition:opacity .4s ease}
+.verdict.show{opacity:1}
+.verdict.pass{color:#7FDCB3;background:rgba(18,138,98,.18);border:1px solid rgba(18,138,98,.55)}
+.verdict.fail{color:#F0A091;background:rgba(181,64,47,.2);border:1px solid rgba(181,64,47,.6)}
+.console-foot{padding:11px 20px;border-top:1px solid var(--line-dark);font-size:10.5px;color:#5E736B;letter-spacing:.06em}
+
+/* ---------- STAT STRIP ---------- */
+.threat{padding:64px 0}
+.threat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.tstat{padding:30px 26px;border-left:1px solid var(--line)}
+.tstat:first-child{border-left:none}
+.tstat .num{font-family:var(--display);font-size:42px;font-weight:700;line-height:1;color:var(--alert)}
+.tstat .what{font-size:13.5px;color:var(--ink-soft);margin-top:10px;line-height:1.45}
+.tstat .src{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);margin-top:12px;letter-spacing:.05em;text-transform:uppercase}
+.threat-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px;gap:24px;flex-wrap:wrap}
+.threat-head p{font-size:14.5px;color:var(--ink-soft);max-width:46ch}
+@media(max-width:980px){.threat-grid{grid-template-columns:1fr 1fr}.tstat:nth-child(3){border-left:none}.tstat:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:560px){.threat-grid{grid-template-columns:1fr}.tstat{border-left:none!important;border-top:1px solid var(--line)}.tstat:first-child{border-top:none}}
+
+/* ---------- PLATFORM GRID ---------- */
+.plat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
+.plat-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:32px;display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:border-color .2s ease,transform .2s ease}
+.plat-card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.plat-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--verified);font-weight:600}
+.plat-card.is-shield .plat-tag{color:var(--alert)}
+.plat-card p{font-size:14.5px;color:var(--ink-soft)}
+.plat-card .go{margin-top:auto;font-weight:600;font-size:14px;display:flex;align-items:center;gap:7px}
+@media(max-width:760px){.plat-grid{grid-template-columns:1fr}}
+
+/* ---------- PRODUCT DEEP DIVES ---------- */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;padding:72px 0;border-top:1px solid var(--line)}
+.prod:first-of-type{border-top:none;padding-top:0}
+.prod h3{font-size:clamp(26px,3vw,34px);margin:16px 0 14px}
+.prod .desc{color:var(--ink-soft);font-size:16px}
+.feat-list{list-style:none;margin-top:10px}
+.feat-list li{padding:15px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:flex-start;font-size:14.5px}
+.feat-list li:last-child{border-bottom:none}
+.feat-list .fl-name{font-weight:600;min-width:172px;flex:none}
+.feat-list .fl-desc{color:var(--ink-soft)}
+.prod-metric{margin-top:26px;display:flex;gap:36px;flex-wrap:wrap}
+.pm .v{font-family:var(--display);font-size:30px;font-weight:700;color:var(--verified)}
+.pm .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:3px}
+@media(max-width:920px){.prod{grid-template-columns:1fr;gap:30px}.feat-list .fl-name{min-width:140px}}
+
+/* ---------- FRAUD SHIELD (dark) ---------- */
+.shield{background:var(--ink);color:#DCE7E1;border-top:none}
+.shield .eyebrow{color:#8FA59C}
+.shield h2{color:#F2F6F3}
+.shield .lede{color:#A8BAB2}
+.layers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.layer{border:1px solid var(--line-dark);border-radius:9px;padding:24px;background:rgba(255,255,255,.025)}
+.layer .ln{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#5E736B;text-transform:uppercase}
+.layer h4{font-family:var(--display);font-weight:600;font-size:17px;margin:9px 0 8px;color:#F2F6F3}
+.layer p{font-size:13px;color:#8FA59C;line-height:1.55}
+@media(max-width:920px){.layers{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.layers{grid-template-columns:1fr}}
+.pipeline{margin-top:60px;border:1px solid var(--line-dark);border-radius:10px;overflow:hidden}
+.pipe-head{padding:14px 22px;border-bottom:1px solid var(--line-dark);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#8FA59C}
+.pipe-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.pipe-step{padding:26px 22px;border-left:1px solid var(--line-dark);position:relative}
+.pipe-step:first-child{border-left:none}
+.pipe-step .pn{font-family:var(--mono);font-size:10.5px;color:var(--verified);letter-spacing:.1em}
+.pipe-step h5{font-family:var(--display);font-size:16px;font-weight:600;color:#F2F6F3;margin:8px 0 7px}
+.pipe-step p{font-size:12.5px;color:#8FA59C;line-height:1.5}
+@media(max-width:860px){.pipe-grid{grid-template-columns:1fr 1fr}.pipe-step:nth-child(3){border-left:none}.pipe-step:nth-child(n+3){border-top:1px solid var(--line-dark)}}
+@media(max-width:520px){.pipe-grid{grid-template-columns:1fr}.pipe-step{border-left:none!important;border-top:1px solid var(--line-dark)}.pipe-step:first-child{border-top:none}}
+
+/* ---------- IMPLEMENTATION ---------- */
+.impl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.impl{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px}
+.impl .ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--verified);font-weight:600}
+.impl h4{font-family:var(--display);font-size:22px;font-weight:600;margin:10px 0 6px}
+.impl .wk{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-bottom:16px}
+.impl ul{list-style:none}
+.impl li{font-size:13.5px;color:var(--ink-soft);padding:8px 0;border-top:1px solid var(--line)}
+@media(max-width:860px){.impl-grid{grid-template-columns:1fr}}
+
+/* ---------- PRICING ---------- */
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.price{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column}
+.price.hot{border-color:var(--ink);box-shadow:0 18px 40px -24px rgba(14,33,27,.35)}
+.price .pt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
+.price h4{font-family:var(--display);font-size:18px;font-weight:600;margin:9px 0 14px;min-height:44px}
+.price .amt{font-family:var(--display);font-size:32px;font-weight:700;line-height:1}
+.price .per{font-size:12.5px;color:var(--ink-faint);margin-top:5px;margin-bottom:18px}
+.price ul{list-style:none;margin-bottom:22px}
+.price li{font-size:13px;color:var(--ink-soft);padding:7px 0;border-top:1px solid var(--line);display:flex;gap:8px}
+.price li::before{content:"—";color:var(--verified);flex:none}
+.price .btn{margin-top:auto;justify-content:center;font-size:13.5px;padding:11px 16px}
+.price-note{margin-top:22px;font-size:13px;color:var(--ink-faint)}
+@media(max-width:1020px){.price-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.price-grid{grid-template-columns:1fr}}
+
+/* ---------- INSIGHTS ---------- */
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.ins{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;text-decoration:none;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s}
+.ins:hover{border-color:var(--ink);transform:translateY(-2px)}
+.ins .it{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--flag);font-weight:600}
+.ins h4{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.25}
+.ins p{font-size:13.5px;color:var(--ink-soft)}
+.ins .go{margin-top:auto;font-size:13.5px;font-weight:600}
+@media(max-width:860px){.ins-grid{grid-template-columns:1fr}}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.about-grid p{color:var(--ink-soft);margin-bottom:16px}
+.about-facts{border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
+.about-facts .row{display:flex;justify-content:space-between;padding:16px 22px;border-top:1px solid var(--line);font-size:14px}
+.about-facts .row:first-child{border-top:none}
+.about-facts .k{color:var(--ink-faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+.about-facts .v{font-weight:600;text-align:right}
+@media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- CTA / FOOTER ---------- */
+.final{background:var(--ink);color:#F2F6F3;text-align:center;padding:110px 0}
+.final h2{color:#F2F6F3;max-width:18ch;margin-left:auto;margin-right:auto}
+.final p{color:#A8BAB2;max-width:52ch;margin:0 auto 36px}
+.final .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.final .btn-primary:hover{background:#fff}
+.final .btn-ghost{color:#F2F6F3;border-color:#3D544B}
+.final .btn-ghost:hover{background:rgba(255,255,255,.07)}
+footer{background:var(--ink);color:#8FA59C;border-top:1px solid var(--line-dark);padding:54px 0 40px;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot-grid h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#5E736B;margin-bottom:14px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:9px}
+.foot-grid a{text-decoration:none;color:#A8BAB2}
+.foot-grid a:hover{color:#F2F6F3}
+.foot-base{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line-dark);font-family:var(--mono);font-size:11px;letter-spacing:.05em;flex-wrap:wrap;gap:12px}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="IntelliSource AIWS home">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <path d="M15 2L26 6.5V14c0 7-4.7 11.6-11 14C8.7 25.6 4 21 4 14V6.5L15 2z" stroke="#0E211B" stroke-width="2" fill="none"/>
+        <path d="M10 14.5l3.4 3.4L20.5 11" stroke="#128A62" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-text"><span class="mark">AIWS</span><span class="sub">IntelliSource AI Workforce</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#fraud-shield">Fraud Shield</a></li>
+      <li><a href="#implementation">Implementation</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#insights">Insights</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#insights">2026 Fraud Report</a>
+      <a class="btn btn-primary" href="#demo">Book a demo</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu(this)">MENU</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#platform">Platform</a>
+    <a href="#fraud-shield">Fraud Shield</a>
+    <a href="#implementation">Implementation</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#insights">Insights</a>
+    <a href="#demo">Book a demo</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">A division of IntelliSource</span>
+      <h1>Hire at AI speed.<br><span class="verify">Verify every human.</span></h1>
+      <p class="lede">AIWS combines AI-powered recruiting operations with the industry's most complete hiring fraud prevention platform — so you fill roles in days, cut recruiting cost by half, and never onboard a candidate who isn't who they claim to be.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#demo">Book a demo <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#platform">Explore the platform</a>
+      </div>
+      <p class="hero-foot">TRUSTED HIRING INFRASTRUCTURE FOR AI INFRASTRUCTURE, MANUFACTURING, LOGISTICS, AEROSPACE &amp; HEALTHCARE OPERATIONS</p>
+    </div>
+
+    <!-- Signature: live verification console -->
+    <div class="console" role="img" aria-label="Fraud Shield verification console showing a candidate being verified across six identity and credential checks, producing a trust score">
+      <div class="console-bar">
+        <span>FRAUD SHIELD™ / VERIFY</span>
+        <span class="live">LIVE SESSION</span>
+      </div>
+      <div class="console-body">
+        <div class="cand">
+          <div>
+            <div class="cand-name" id="cName">D. Okafor</div>
+            <div class="cand-role" id="cRole">Sr. Platform Engineer — Final Round</div>
+          </div>
+          <div class="cand-id" id="cId">REQ-2481</div>
+        </div>
+        <ul class="checks" id="checks"></ul>
+        <div class="score-row">
+          <div>
+            <div class="score-label">Trust Score</div>
+            <div class="score-val"><span id="score">0</span><small>/100</small></div>
+          </div>
+          <div class="verdict" id="verdict">VERIFIED</div>
+        </div>
+      </div>
+      <div class="console-foot">11-LAYER DETECTION · DEEPFAKE / PROXY / SYNTHETIC-ID · SOC 2 TYPE II</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ THREAT STATS ============ -->
+<section class="threat" id="threat">
+  <div class="wrap">
+    <div class="threat-head reveal">
+      <div>
+        <span class="eyebrow alert">The threat is already inside the funnel</span>
+        <h2 style="font-size:clamp(26px,3.4vw,38px)">Hiring is now an attack surface.</h2>
+      </div>
+      <p>Generative AI made fake candidates cheap to build and hard to catch. Speed without verification is a liability — AIWS delivers both.</p>
+    </div>
+    <div class="threat-grid reveal">
+      <div class="tstat"><div class="num" data-count="25" data-suffix="%">0%</div><div class="what">of candidate profiles worldwide projected to be fake by 2028 — one in four.</div><div class="src">Gartner</div></div>
+      <div class="tstat"><div class="num" data-count="41" data-suffix="%">0%</div><div class="what">of enterprises report having already hired and onboarded a fraudulent candidate.</div><div class="src">GetReal Security, 2025</div></div>
+      <div class="tstat"><div class="num" data-count="1300" data-suffix="%">0%</div><div class="what">year-over-year increase in deepfake-related fraud activity.</div><div class="src">Pindrop</div></div>
+      <div class="tstat"><div class="num" data-count="70" data-suffix=" min">0</div><div class="what">for a novice to build a fake candidate capable of passing a video interview.</div><div class="src">Palo Alto Networks</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLATFORM OVERVIEW ============ -->
+<section id="platform">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">One platform, four products</span>
+      <h2>Everything between "we need people"<br>and "they're verified and producing."</h2>
+      <p class="lede">Four products that work alone or as one system — recruiting execution, workforce intelligence, pipeline building, and fraud prevention, all on a shared data layer.</p>
+    </div>
+    <div class="plat-grid">
+      <a class="plat-card reveal" href="#p-rpo">
+        <span class="plat-tag">01 / Recruit</span>
+        <h3>AI-Powered RPO</h3>
+        <p>A recruiting operation run by AI agents and supervised by expert recruiters. Sourcing, outreach, screening, and scheduling happen in hours — at roughly half the cost of traditional RPO.</p>
+        <span class="go">See how it works →</span>
+      </a>
+      <a class="plat-card reveal" href="#p-intel">
+        <span class="plat-tag">02 / Decide</span>
+        <h3>AI Workforce Intelligence</h3>
+        <p>Hiring analytics, labor market data, and attrition prediction in executive-ready dashboards — so workforce decisions run on evidence instead of instinct.</p>
+        <span class="go">See the dashboards →</span>
+      </a>
+      <a class="plat-card reveal" href="#p-comm">
+        <span class="plat-tag">03 / Build</span>
+        <h3>AI Talent Communities</h3>
+        <p>Turn every past applicant into a warm pipeline. Automated nurture, engagement scoring, and readiness prediction tell you who's ready to move before you post the req.</p>
+        <span class="go">See the pipeline →</span>
+      </a>
+      <a class="plat-card is-shield reveal" href="#fraud-shield">
+        <span class="plat-tag">04 / Protect</span>
+        <h3>AI Fraud Shield™</h3>
+        <p>Eleven detection layers against deepfakes, proxy interviews, synthetic identities, and credential fraud — from first application through continuous workforce verification.</p>
+        <span class="go">See the detection layers →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEEP DIVES ============ -->
+<section id="products" style="padding-bottom:24px">
+  <div class="wrap">
+
+    <div class="prod" id="p-rpo">
+      <div class="reveal">
+        <span class="eyebrow">01 / AI-Powered RPO</span>
+        <h3>Recruiting that runs around the clock.</h3>
+        <p class="desc">AI agents source, engage, screen, and schedule continuously. IntelliSource recruiters supervise every decision, manage hiring-team relationships, and close offers. You get enterprise RPO outcomes without enterprise RPO overhead.</p>
+        <div class="prod-metric">
+          <div class="pm"><div class="v">58%</div><div class="k">Faster time-to-fill</div></div>
+          <div class="pm"><div class="v">~50%</div><div class="k">Lower cost per hire</div></div>
+          <div class="pm"><div class="v">24/7</div><div class="k">Pipeline activity</div></div>
+        </div>
+      </div>
+      <ul class="feat-list reveal">
+        <li><span class="fl-name">AI sourcing</span><span class="fl-desc">Continuous search across 800M+ public profiles, matched to calibrated role criteria.</span></li>
+        <li><span class="fl-name">AI outreach</span><span class="fl-desc">Personalized multi-channel sequences with reply handling and interest qualification.</span></li>
+        <li><span class="fl-name">AI screening</span><span class="fl-desc">Structured, bias-audited screens with transcripts and evidence-linked scorecards.</span></li>
+        <li><span class="fl-name">AI scheduling</span><span class="fl-desc">Self-serve booking across panel calendars; reschedules handled automatically.</span></li>
+        <li><span class="fl-name">Recruiter copilot</span><span class="fl-desc">Drafts, summaries, and next-best-actions inside your ATS for every open req.</span></li>
+        <li><span class="fl-name">Candidate ranking</span><span class="fl-desc">Explainable fit scores so hiring managers review the right ten, not four hundred.</span></li>
+        <li><span class="fl-name">Workforce forecasting</span><span class="fl-desc">Demand plans converted into sourcing capacity before the req is opened.</span></li>
+      </ul>
+    </div>
+
+    <div class="prod" id="p-intel">
+      <div class="reveal">
+        <span class="eyebrow">02 / AI Workforce Intelligence</span>
+        <h3>See the workforce the way the CFO sees the P&amp;L.</h3>
+        <p class="desc">A decision layer across your hiring funnel, internal workforce, and external labor market. Know what roles really cost, where talent supply is moving, and who is at risk of leaving — quarters ahead of the problem.</p>
+        <div class="prod-metric">
+          <div class="pm"><div class="v">12 wks</div><div class="k">Avg. attrition early warning</div></div>
+          <div class="pm"><div class="v">40+</div><div class="k">Labor markets tracked</div></div>
+        </div>
+      </div>
+      <ul class="feat-list reveal">
+        <li><span class="fl-name">Hiring analytics</span><span class="fl-desc">Funnel velocity, pass-through, source ROI, and recruiter capacity in one view.</span></li>
+        <li><span class="fl-name">Talent supply analytics</span><span class="fl-desc">Availability, competition, and compensation for any role in any market.</span></li>
+        <li><span class="fl-name">Labor market insights</span><span class="fl-desc">Live signals on competitor hiring, layoffs, and wage movement in your sectors.</span></li>
+        <li><span class="fl-name">Attrition prediction</span><span class="fl-desc">Role- and team-level flight risk with the drivers behind it, not just the score.</span></li>
+        <li><span class="fl-name">Workforce forecasting</span><span class="fl-desc">Scenario models tying headcount plans to revenue plans and ramp times.</span></li>
+        <li><span class="fl-name">Executive dashboards</span><span class="fl-desc">Board-ready views refreshed daily — no analyst time required.</span></li>
+      </ul>
+    </div>
+
+    <div class="prod" id="p-comm">
+      <div class="reveal">
+        <span class="eyebrow">03 / AI Talent Communities</span>
+        <h3>Your next hire is already in your database.</h3>
+        <p class="desc">Most companies pay to re-find people they've already met. AIWS turns silver-medalist candidates, past applicants, and alumni into segmented, engaged communities — then predicts who's ready to say yes.</p>
+        <div class="prod-metric">
+          <div class="pm"><div class="v">31%</div><div class="k">Of hires from community</div></div>
+          <div class="pm"><div class="v">$0</div><div class="k">Sourcing cost on those hires</div></div>
+        </div>
+      </div>
+      <ul class="feat-list reveal">
+        <li><span class="fl-name">Candidate CRM</span><span class="fl-desc">Every contact, conversation, and consent record in one compliant system.</span></li>
+        <li><span class="fl-name">Automated nurture</span><span class="fl-desc">Role-relevant content and check-ins that keep communities warm without recruiter time.</span></li>
+        <li><span class="fl-name">Talent pooling</span><span class="fl-desc">Dynamic pools by skill, location, and clearance that update as profiles change.</span></li>
+        <li><span class="fl-name">Engagement scoring</span><span class="fl-desc">Know who opens, clicks, and replies — and who has gone cold.</span></li>
+        <li><span class="fl-name">Readiness scoring</span><span class="fl-desc">Predictive signals — tenure cliffs, market shifts, profile updates — flag who to call this week.</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FRAUD SHIELD ============ -->
+<section class="shield" id="fraud-shield">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow alert">04 / AI Fraud Shield™</span>
+      <h2>Eleven layers between fraud<br>and your payroll.</h2>
+      <p class="lede">Point solutions check a document or scan a face. Fraud Shield correlates identity, media, credentials, and behavior across the entire hiring journey — because sophisticated fraud only breaks when every layer talks to every other layer.</p>
+    </div>
+
+    <div class="layers">
+      <div class="layer reveal"><div class="ln">Layer 01</div><h4>Identity Verification</h4><p>Government-ID authentication with biometric liveness — confirmed at application, interview, and day one, so the person never changes between steps.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 02</div><h4>Deepfake Detection</h4><p>Real-time video and audio analysis during interviews: frame-level artifacts, micro-acoustic signatures, and voice-face correspondence checks.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 03</div><h4>Resume Validation</h4><p>Cross-references claims against public records and digital footprint; flags AI-fabricated histories and impossible timelines.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 04</div><h4>Employment Verification</h4><p>Confirms employers, titles, and dates through payroll-network and registry data — not just the references the candidate chose.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 05</div><h4>Credential Verification</h4><p>Degrees, licenses, and certifications validated directly with issuing institutions and accreditation registries.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 06</div><h4>Behavioral Risk Detection</h4><p>Response latency, answer provenance, and assistance patterns that indicate scripted or AI-coached interviews.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 07</div><h4>Interview Fraud Detection</h4><p>Catches teleprompting, off-screen coaching, and answer feeding the moment it happens — with reviewable evidence clips.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 08</div><h4>Offshore Proxy Detection</h4><p>Network, device, and timezone forensics that expose stand-ins interviewing — or working — on someone else's behalf.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 09</div><h4>Synthetic Identity Detection</h4><p>Graph analysis that spots assembled identities: real SSN, fabricated history, borrowed face — the profile that never existed.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 10</div><h4>Candidate Risk Scoring</h4><p>Every signal fuses into one explainable 0–100 trust score with evidence trails your legal team can stand behind.</p></div>
+      <div class="layer reveal"><div class="ln">Layer 11</div><h4>Continuous Workforce Verification</h4><p>Verification doesn't end at the offer. Periodic re-checks confirm the person you hired is the person doing the work.</p></div>
+      <div class="layer reveal" style="border-style:dashed"><div class="ln">Outcome</div><h4>Zero fraudulent hires</h4><p>Across design-partner deployments, Fraud Shield has intercepted every confirmed fraud attempt before offer — with under 2% candidate friction.</p></div>
+    </div>
+
+    <div class="pipeline reveal">
+      <div class="pipe-head">How a verification runs</div>
+      <div class="pipe-grid">
+        <div class="pipe-step"><div class="pn">STEP 1</div><h5>Capture signals</h5><p>Documents, biometrics, interview media, device and network telemetry collected with candidate consent at each stage.</p></div>
+        <div class="pipe-step"><div class="pn">STEP 2</div><h5>Run the ensemble</h5><p>Specialized models — vision, audio, NLP, graph — analyze each signal class in parallel, in seconds.</p></div>
+        <div class="pipe-step"><div class="pn">STEP 3</div><h5>Score &amp; explain</h5><p>Signals fuse into a trust score with plain-language reasons and linked evidence for every flag.</p></div>
+        <div class="pipe-step"><div class="pn">STEP 4</div><h5>Act in workflow</h5><p>Auto-advance, request re-verification, or route to your fraud review queue — inside your existing ATS.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPLEMENTATION ============ -->
+<section id="implementation">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Implementation</span>
+      <h2>Live in weeks, not quarters.</h2>
+      <p class="lede">A buyer-safe methodology with fixed milestones, weekly executive reporting, and a named accountable lead. You always know what ships next and what it proves.</p>
+    </div>
+    <div class="impl-grid">
+      <div class="impl reveal">
+        <div class="ph">Phase 1</div><h4>Discover</h4><div class="wk">Weeks 1–3</div>
+        <ul>
+          <li>Hiring process &amp; systems audit</li>
+          <li>Fraud exposure assessment</li>
+          <li>Baseline metrics: cost, speed, quality</li>
+          <li>Success criteria signed by your exec sponsor</li>
+        </ul>
+      </div>
+      <div class="impl reveal">
+        <div class="ph">Phase 2</div><h4>Stabilize</h4><div class="wk">Weeks 4–10</div>
+        <ul>
+          <li>ATS &amp; HRIS integrations live</li>
+          <li>Pilot on 2–3 high-volume role families</li>
+          <li>Fraud Shield on all pilot interviews</li>
+          <li>Weekly scorecard vs. baseline</li>
+        </ul>
+      </div>
+      <div class="impl reveal">
+        <div class="ph">Phase 3</div><h4>Scale</h4><div class="wk">Weeks 11+</div>
+        <ul>
+          <li>Rollout across business units &amp; geos</li>
+          <li>Workforce Intelligence dashboards live</li>
+          <li>Talent communities activated</li>
+          <li>Quarterly business reviews with ROI audit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2>Priced against outcomes,<br>not headcount markups.</h2>
+      <p class="lede">Traditional RPO charges 15–25% of first-year salary per hire. AI does the heavy lifting here — and the savings are yours.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price hot reveal">
+        <div class="pt">AI-Powered RPO</div>
+        <h4>Full-cycle recruiting, delivered</h4>
+        <div class="amt">$2,400</div>
+        <div class="per">per hire · volume tiers available</div>
+        <ul>
+          <li>AI sourcing, outreach, screening, scheduling</li>
+          <li>Dedicated recruiter pod oversight</li>
+          <li>Fraud Shield screening included on every hire</li>
+          <li>SLA-backed time-to-fill targets</li>
+        </ul>
+        <a class="btn btn-primary" href="#demo">Get a quote</a>
+      </div>
+      <div class="price reveal">
+        <div class="pt">Workforce Intelligence</div>
+        <h4>The decision layer</h4>
+        <div class="amt">$3,500</div>
+        <div class="per">per month · unlimited viewers</div>
+        <ul>
+          <li>Hiring &amp; funnel analytics</li>
+          <li>Labor market &amp; supply data</li>
+          <li>Attrition prediction</li>
+          <li>Executive dashboards</li>
+        </ul>
+        <a class="btn btn-ghost" href="#demo">Start a pilot</a>
+      </div>
+      <div class="price reveal">
+        <div class="pt">Talent Communities</div>
+        <h4>Pipeline on autopilot</h4>
+        <div class="amt">$2,000</div>
+        <div class="per">per month · to 50K contacts</div>
+        <ul>
+          <li>Candidate CRM &amp; talent pools</li>
+          <li>Automated nurture campaigns</li>
+          <li>Engagement &amp; readiness scoring</li>
+          <li>ATS-synced, consent-managed</li>
+        </ul>
+        <a class="btn btn-ghost" href="#demo">Start a pilot</a>
+      </div>
+      <div class="price reveal">
+        <div class="pt">AI Fraud Shield™</div>
+        <h4>Verification &amp; fraud defense</h4>
+        <div class="amt">$8</div>
+        <div class="per">per verification + $2,500/mo platform</div>
+        <ul>
+          <li>All 11 detection layers</li>
+          <li>Real-time interview monitoring</li>
+          <li>Continuous workforce verification add-on</li>
+          <li>SOC 2 Type II · GDPR · CCPA</li>
+        </ul>
+        <a class="btn btn-ghost" href="#demo">Talk to fraud team</a>
+      </div>
+    </div>
+    <p class="price-note">Enterprise agreements bundle all four products with custom SLAs, dedicated pods, and managed fraud-review services. Implementation is fixed-fee and milestone-billed — you pay when phases ship.</p>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section id="insights">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow flag">Insights</span>
+      <h2>The research desk for AI hiring security.</h2>
+      <p class="lede">AIWS publishes the benchmarks the industry quotes. Subscribe once; get every report the day it ships.</p>
+    </div>
+    <div class="ins-grid">
+      <a class="ins reveal" href="#demo">
+        <span class="it">Annual flagship</span>
+        <h4>2026 AI Hiring Fraud Report</h4>
+        <p>Fraud rates by industry and role, the new proxy-interview economy, and the detection benchmark — built from millions of verification events.</p>
+        <span class="go">Get the report →</span>
+      </a>
+      <a class="ins reveal" href="#demo">
+        <span class="it">Quarterly index</span>
+        <h4>Workforce Intelligence Index</h4>
+        <p>Hiring velocity, wage movement, and talent supply across 40+ markets — the quarterly read CHROs bring to the board.</p>
+        <span class="go">Read Q2 2026 →</span>
+      </a>
+      <a class="ins reveal" href="#demo">
+        <span class="it">Benchmark</span>
+        <h4>AI Recruiting Benchmark Report</h4>
+        <p>What AI-run recruiting actually delivers: time-to-fill, cost per hire, and quality-of-hire versus traditional RPO, with methodology you can audit.</p>
+        <span class="go">See the data →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <span class="eyebrow">Why IntelliSource</span>
+      <h2>New division.<br>Twenty-five years of delivery.</h2>
+      <p>AIWS isn't a startup learning recruiting on your payroll. It's the AI division of IntelliSource — a workforce solutions firm that has run RPO, BPO, and total talent programs for enterprises across manufacturing, logistics, technology, and energy for over two decades.</p>
+      <p>We built AIWS because our clients asked the same two questions in every QBR: <em>"Can AI make this faster and cheaper?"</em> and <em>"How do we know who we're really hiring?"</em> The answer to both is the same platform.</p>
+    </div>
+    <div class="about-facts reveal">
+      <div class="row"><span class="k">Heritage</span><span class="v">25+ years in workforce solutions</span></div>
+      <div class="row"><span class="k">Headquarters</span><span class="v">Denver, Colorado</span></div>
+      <div class="row"><span class="k">Delivery model</span><span class="v">AI agents + expert recruiter pods</span></div>
+      <div class="row"><span class="k">Security</span><span class="v">SOC 2 Type II · ISO 27001 path</span></div>
+      <div class="row"><span class="k">Privacy</span><span class="v">GDPR &amp; CCPA compliant by design</span></div>
+      <div class="row"><span class="k">Integrations</span><span class="v">Workday · Greenhouse · Ashby · Lever · iCIMS</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final" id="demo">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;color:#8FA59C">Book a demo</span>
+    <h2>See your own hiring funnel<br>through Fraud Shield.</h2>
+    <p>Bring one open req. In 30 minutes we'll show you AI-run recruiting on that role and run a live verification — including what a deepfake attempt looks like when it fails.</p>
+    <div class="hero-ctas" style="justify-content:center">
+      <a class="btn btn-primary" href="mailto:aiws@intellisource.com?subject=AIWS%20Demo%20Request">Book a demo <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="mailto:aiws@intellisource.com?subject=2026%20AI%20Hiring%20Fraud%20Report">Get the 2026 Fraud Report</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>IntelliSource AIWS</h5>
+        <p style="max-width:34ch">AI workforce solutions: recruit, decide, build, protect. A division of IntelliSource, Denver, Colorado.</p>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#p-rpo">AI-Powered RPO</a></li>
+          <li><a href="#p-intel">Workforce Intelligence</a></li>
+          <li><a href="#p-comm">Talent Communities</a></li>
+          <li><a href="#fraud-shield">AI Fraud Shield™</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About AIWS</a></li>
+          <li><a href="#implementation">Implementation</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#demo">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Research</h5>
+        <ul>
+          <li><a href="#insights">AI Hiring Fraud Report</a></li>
+          <li><a href="#insights">Workforce Intelligence Index</a></li>
+          <li><a href="#insights">Recruiting Benchmark</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 INTELLISOURCE. ALL RIGHTS RESERVED.</span>
+      <span>SOC 2 TYPE II · GDPR · CCPA · EEOC / NYC LL144 BIAS-AUDITED AI</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- mobile menu ---------- */
+function toggleMenu(btn){
+  const m=document.getElementById('mobileMenu');
+  const open=m.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.remove('open');
+}));
+
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- scroll reveal ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- stat count-up ---------- */
+const statIO=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  statIO.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||'';
+  if(reduced){el.textContent=end.toLocaleString()+suf;return;}
+  const t0=performance.now(),dur=1300;
+  (function tick(t){
+    const p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(end*ease).toLocaleString()+suf;
+    if(p<1)requestAnimationFrame(tick);
+  })(t0);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>statIO.observe(el));
+
+/* ---------- verification console ---------- */
+const CHECKS=['Document authenticity','Liveness & face match','Voice–face correspondence','Employment record match','Credential registry','Network & device signals'];
+const CANDIDATES=[
+  {name:'D. Okafor',role:'Sr. Platform Engineer — Final Round',id:'REQ-2481',results:[1,1,1,1,1,1],score:96,verdict:'VERIFIED',cls:'pass'},
+  {name:'Candidate #7733',role:'Remote Data Analyst — Screen',id:'REQ-2509',results:[1,1,0,0,1,0],score:31,verdict:'FLAGGED — PROXY RISK',cls:'fail'},
+  {name:'M. Reyes',role:'Logistics Supervisor — Onsite',id:'REQ-2517',results:[1,1,1,1,1,1],score:98,verdict:'VERIFIED',cls:'pass'}
+];
+const checksEl=document.getElementById('checks'),
+      scoreEl=document.getElementById('score'),
+      verdictEl=document.getElementById('verdict'),
+      nameEl=document.getElementById('cName'),
+      roleEl=document.getElementById('cRole'),
+      idEl=document.getElementById('cId');
+
+function renderChecks(state){ // state: array of 'wait'|'scan'|'pass'|'fail'
+  checksEl.innerHTML=CHECKS.map((c,i)=>{
+    const s=state[i];
+    const label={wait:'QUEUED',scan:'SCANNING',pass:'PASS',fail:'FLAG'}[s];
+    return `<li class="check"><span class="check-label">${c}</span><span class="check-status s-${s}">${label}</span></li>`;
+  }).join('');
+}
+
+function setCandidate(c){
+  nameEl.textContent=c.name;roleEl.textContent=c.role;idEl.textContent=c.id;
+  verdictEl.className='verdict '+c.cls;verdictEl.textContent=c.verdict;
+}
+
+function animateScore(target,dur){
+  const t0=performance.now();
+  (function tick(t){
+    const p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+    scoreEl.textContent=Math.round(target*ease);
+    if(p<1)requestAnimationFrame(tick);
+  })(t0);
+}
+
+if(reduced){
+  const c=CANDIDATES[0];
+  setCandidate(c);
+  renderChecks(c.results.map(r=>r?'pass':'fail'));
+  scoreEl.textContent=c.score;
+  verdictEl.classList.add('show');
+}else{
+  let ci=0;
+  function runCandidate(){
+    const c=CANDIDATES[ci%CANDIDATES.length];ci++;
+    setCandidate(c);
+    verdictEl.classList.remove('show');
+    scoreEl.textContent='0';
+    const state=CHECKS.map(()=> 'wait');
+    renderChecks(state);
+    let i=0;
+    function step(){
+      if(i>0)state[i-1]=c.results[i-1]?'pass':'fail';
+      if(i<CHECKS.length){
+        state[i]='scan';renderChecks(state);i++;
+        setTimeout(step,520);
+      }else{
+        renderChecks(state);
+        animateScore(c.score,900);
+        setTimeout(()=>verdictEl.classList.add('show'),900);
+        setTimeout(runCandidate,4200);
+      }
+    }
+    setTimeout(step,400);
+  }
+  runCandidate();
+}
+</script>
+</body>
+</html>
