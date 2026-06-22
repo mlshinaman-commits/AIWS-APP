@@ -4,6 +4,7 @@ export const navItems = [
   { label: "Outcomes", href: "#outcomes" },
   { label: "Research", href: "#research" },
   { label: "Demo", href: "#demo" },
+  { label: "Launch Film", href: "/tempo-launch-film.html" },
 ] as const;
 
 export const proofMetrics = [
